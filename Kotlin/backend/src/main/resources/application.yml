@@ -1,0 +1,14 @@
+spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      # deals with single and multi-valued JWT claims
+      accept-single-value-as-array: true
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          introspection-uri: https://bloodx-lq6cqf.zitadel.cloud/oauth/v2/introspect
+          client-id: 277372851735054298
+          client-secret: OiCjL7a3oEXp7FeHHjdANMFvbDbUleszaftAf6GRdZdFlsGXBHHOnNBVzaEoVluF

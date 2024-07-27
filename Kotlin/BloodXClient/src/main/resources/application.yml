@@ -1,0 +1,40 @@
+server:
+  port: 1011
+  # servlet:
+  #   context-path: /webapp
+  # error:
+  #   include-stacktrace: never
+
+spring:
+  thymeleaf:
+    cache: false
+  security:
+    oauth2:
+      client:
+        provider:
+          zitadel:
+            issuer-uri: https://bloodx-lq6cqf.zitadel.cloud
+            user-name-attribute: preferred_username
+        registration:
+          zitadel:
+            client-id: 277373228433885146
+            client-authentication-method: none
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:1011/login/oauth2/code/zitadel
+            # redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
+            scope: 
+              - openid
+              - profile
+              - email
+              # Include other necessary scopes if needed. "urn" is typically not a scope
+              # unless defined specifically by your authorization server. 
+              # You might need specific claims or roles instead.
+
+logging:
+  level:
+    root: info
+    demo: debug
+    org:
+      springframework:
+        web: info
+        security: debug
